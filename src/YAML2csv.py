@@ -1,16 +1,9 @@
 import csv
 import yaml
-import requests
 
-# URL of the YAML file
-yaml_url = 'https://theunitedstates.io/congress-legislators/legislators-historical.yaml'
-
-# Fetch the YAML content from the URL
-response = requests.get(yaml_url)
-yaml_content = response.text
-
-# Load YAML content
-data = yaml.safe_load(yaml_content)
+# Read the YAML file from your local machine
+with open('legislators-historical.yaml', 'r', encoding='utf-8') as yaml_file:
+    data = yaml.safe_load(yaml_file)
 
 # CSV file path
 csv_file_path = 'legislators.csv'
